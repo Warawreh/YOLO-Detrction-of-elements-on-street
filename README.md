@@ -1,4 +1,3 @@
-::: {.cell .markdown id="Giq4o2k_0xAI"}
 # Visual Pollution Detection Model (Yolov4)
 
 At the beginning, I read the task and analyzed the problem at hand.
@@ -37,111 +36,79 @@ How to use the model:
 
 1.  Upload the zip file to Google Drive.
 2.  Mount the drive with the zip file to Google Colab.
-:::
 
-::: {.cell .code id="2gnJDBUEvHy7"}
 ``` python
 from google.colab import drive
 drive.mount('/content/drive')
 ```
-:::
 
-::: {.cell .markdown id="TY-cJ-0-1gTH"}
-1.  Copy the zip file to Colab. This helps with speeding up image
+3.  Copy the zip file to Colab. This helps with speeding up image
     loading
-:::
 
-::: {.cell .code execution_count="19" id="lOyntkEMvFBV"}
 ``` python
 !cp '/content/drive/MyDrive/TensorFlow-2.x-YOLOv3-master.zip' '.'
 ```
-:::
 
-::: {.cell .markdown id="E4xAoDji1r4u"}
-1.  Unzip the file.
-:::
+4.  Unzip the file.
 
-::: {.cell .code id="rdS4_C9EwKQt"}
 ``` python
 !unzip "TensorFlow-2.x-YOLOv3-master.zip"
 ```
-:::
 
-::: {.cell .markdown id="L_6hVXU93Pgg"}
-1.  Change directories to access the model.
-:::
+5.  Change directories to access the model.
 
-::: {.cell .code execution_count="30" id="asACZW0Jwdcj"}
 ``` python
 import os
 from google.colab import drive
 os.chdir('/content/TensorFlow-2.x-YOLOv3-master')
 ```
-:::
 
-::: {.cell .markdown id="k4smwfor15-X"}
-1.  Download the required libraries. Most libraries needed are listed in
+6.  Download the required libraries. Most libraries needed are listed in
     \'requirements.txt\'.
-:::
 
-::: {.cell .code id="pyItpInv4liQ"}
 ``` python
 !pip install -r requirements.txt  # install
 ```
-:::
 
-::: {.cell .markdown id="2TxZKWTi6_4l"}
-1.  Upload all images needed for training to the directories
+7.  Upload all images needed for training to the directories
     \"/mnist/mnist_test\" and \"/mnist/mnist_train\".
 
-2.  Save the classes\' names in a file named \"mnist.names\", with each
+8.  Save the classes\' names in a file named \"mnist.names\", with each
     class on a single line.
 
-3.  Add the images\' paths (path to the \"/mnist/mnist_test\" directory)
+9.  Add the images\' paths (path to the \"/mnist/mnist_test\" directory)
     into the files \"mnist_test.txt\" and \"mnist_train.txt\", with each
     path on a single line (columns: image_path, xmin, ymin, xmax, ymax,
     class).
 
-4.  Configure your model (in the file \"yolov3/configs.py\"). I saved my
+10.  Configure your model (in the file \"yolov3/configs.py\"). I saved my
     model on Google Drive (since Colab keeps disconnecting), so you may
     want to change the value of \'TRAIN_CHECKPOINTS_FOLDER\' to
     \"checkpoints\".
 
-5.  Train the model (or retrain it) using:
-:::
+11.  Train the model (or retrain it) using:
 
-::: {.cell .code id="XtwrHvTKwbMc"}
 ``` python
 !python3 train.py
 ```
-:::
 
-::: {.cell .markdown id="5X8_V9jJ8SEr"}
-1.  Once the model is ready, use it to detect the images you want by
+12.  Once the model is ready, use it to detect the images you want by
     providing the path of the images in a file named \'test.csv\'.
-:::
 
-::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\"}" id="ExZWcZPpXK_t" outputId="53d20793-c79b-404d-b53a-1ca5c6a921b6"}
 ``` python
 !python3 detect.py
 ```
 
-::: {.cell .markdown id="WjPNj9mx8i5j"}
 The results are ready in the file \'result0.txt\' in the required format
 (just add the first row with the column names).
 
 To save your current work, compress the working directory and move it to
 your Google Drive.
-:::
 
-::: {.cell .code id="lR4UtmzvabgX"}
 ``` python
 !zip -r 'TensorFlow-2.x-YOLOv3-master.zip' '../TensorFlow-2.x-YOLOv3-master'
 !cp 'TensorFlow-2.x-YOLOv3-master.zip' '/content/drive/MyDrive'
 ```
-:::
 
-::: {.cell .markdown id="iRzk8huFoskn"}
-By [Muhannad A.
+By Muhannad A. Alwarawreh
 Alwarawreh](https://www.linkedin.com/in/muhannad-alwarawreh-11045b222/)
-:::
