@@ -1,26 +1,3 @@
----
-jupyter:
-  accelerator: GPU
-  colab:
-  gpuClass: standard
-  kernelspec:
-    display_name: Python 3 (ipykernel)
-    language: python
-    name: python3
-  language_info:
-    codemirror_mode:
-      name: ipython
-      version: 3
-    file_extension: .py
-    mimetype: text/x-python
-    name: python
-    nbconvert_exporter: python
-    pygments_lexer: ipython3
-    version: 3.9.2
-  nbformat: 4
-  nbformat_minor: 1
----
-
 ::: {.cell .markdown id="Giq4o2k_0xAI"}
 # Visual Pollution Detection Model (Yolov4)
 
